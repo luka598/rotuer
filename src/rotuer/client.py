@@ -12,7 +12,7 @@ class Client:
     def recv(self) -> T.Optional[dict]:
         r = requests.get(self.uri + "/inbox/" + self.user_id)
         message = r.json()
-        print(message)
+        return message
 
     def send(self, d: dict, to_user_id: str = "", to_service: str = "", **kwargs):
         d["from_user_id"] = self.user_id
